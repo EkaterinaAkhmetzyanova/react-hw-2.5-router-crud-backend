@@ -27,7 +27,7 @@ router.post('/posts', async(ctx, next) => {
         return;
     }
 
-    posts.push({...ctx.request.body, id: nextId++, created: Date.now()});
+    posts.push({...JSON.parse(ctx.request.body), id: nextId++, created: Date.now()});
     ctx.response.status = 204;
 });
 
